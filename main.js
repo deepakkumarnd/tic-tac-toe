@@ -1,4 +1,6 @@
 function main(){
-  drawGrid();
-  drawCoin(0);
+  setUpBoard();
+  if(true){
+    TicTacToe.play();
+  }
 }
