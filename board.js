@@ -67,7 +67,7 @@ function getCellNumber(p,q){
   if(isOutOfBound(p,q)){
     return(-1);
   }
-  
+
 	if(p <= (x+d)){
 		code = (code | 8);
 	}
@@ -90,7 +90,7 @@ function getCellNumber(p,q){
 function isOutOfBound(p,q){
   var result = false;
   if((p<board.x) || (p>(board.x+(3*board.d))) || (q<board.y) || (q>(board.y+(3*board.d)))){
-    result = true;	
+    result = true;
   }
   return(result);
 }
@@ -151,12 +151,13 @@ function getCellCentre(cell){
 
 var setUpBoard = function(){
 	drawGrid();
-	var coin1 = paper.circle(board.x+(3.5*board.d), board.y+(board.d), 10);
-	coin1.attr({fill: "green", stroke: "none"});
-	var coin2 = paper.circle(board.x+(3.5*board.d), board.y+(1.5*board.d), 10);
-	coin2.attr({fill: "red", stroke: "none"});
+    board.ai_coin_1 = paper.circle(board.x+(3.5*board.d), board.y+(board.d), 10);
+	board.ai_coin_1.attr({fill: "green", stroke: "none"});
+	board.human_coin_1 = paper.circle(board.x+(3.5*board.d), board.y+(1.5*board.d), 10);
+	board.human_coin_1.attr({fill: "red", stroke: "none"});
 }
 
 var randomCell = function(){
-	cell_no = (Math.random()*9) + 1; 
+	cell_no = Math.round((Math.random()*9) + 1);
+    return cell_no;
 }
